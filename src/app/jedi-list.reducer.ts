@@ -1,6 +1,5 @@
 // jedi-list.reducer.ts
 
-
 let state = jediListReducer([], { type: 'ADD_JEDI', payload : { id: 1, name: 'Yoda' }});
 // now contains [{ id: 1, name: 'Yoda' }]
 
@@ -12,8 +11,6 @@ state = jediListReducer(state, { type: 'REMOVE JEDI', payload: { id: 1 } });
 
 state = jediListReducer(state, { type: 'LOAD_JEDIS', payload: [] });
 // now contains []
-
-
 
 export function jediListReducer(state = [], action) {
     switch(action.type) {
@@ -27,3 +24,5 @@ export function jediListReducer(state = [], action) {
         return state;
     }
   }
+
+

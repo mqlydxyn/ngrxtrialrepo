@@ -1,5 +1,4 @@
 // jedi-list.component.ts
-
 import { Component } from "@angular/core";
 import { Store } from "@ngrx/store";
 import { AppState } from "./app-state";

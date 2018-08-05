@@ -1,5 +1,6 @@
 // reducer.ts
 
+
 let state = counterReducer(0, { type: 'INCREMENT' });
 // state is 1
 state = counterReducer(state, { type: 'INCREMENT' });

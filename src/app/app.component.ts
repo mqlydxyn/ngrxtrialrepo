@@ -1,12 +1,14 @@
 import { Component } from '@angular/core';
 import { Store } from "@ngrx/store";
 //import { Observable } from "rxjs/Observable";
+import { Observable, of } from 'rxjs';
 import { AppState } from "./app-state";
 
 
 @Component({
   selector: 'app-root',
   template: `
+  appcounter：
   {{ counter$ | async }}
   <button (click)="increment()" >Increment</button>
   <button (click)="decrement()" >Decrement</button>

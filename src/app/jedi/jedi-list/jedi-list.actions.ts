@@ -2,7 +2,9 @@ import {
     ADD_JEDI, 
     REMOVE_JEDI, 
     LOAD_JEDIS 
-  } from "./jedi.constants";
+  } from "./jedi-list.constants";
+  
+  let counter = 0;
   
   export const addJedi = (id, name) => ({ type: ADD_JEDI, payload: { id, name } });
   export const removeJedi = (id) => ({ type: REMOVE_JEDI, payload:{ id } });

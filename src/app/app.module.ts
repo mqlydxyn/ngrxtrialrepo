@@ -4,13 +4,15 @@ import { FormsModule } from '@angular/forms';
 import { StoreModule } from "@ngrx/store";
 import { AppComponent } from './app.component';
 import { counterReducer } from "./reducer";
-import { jediListReducer } from "./jedi-list.reducer";
-import { JediListComponent } from './jedi-list.component';
+import { jediListReducer } from "./jedi/jedi-list/jedi-list.reducer";
+//import { JediListComponent } from './jedi-list.component';
+import { JediListComponent} from './jedi/jedi-list/jedi-list.component';
+import { JediModule } from './jedi/jedi.module';
 
 @NgModule({
   declarations: [
     AppComponent, 
-    JediListComponent//reducer的pair
+    JediListComponent
    ],
 
   imports: [
@@ -20,6 +22,7 @@ import { JediListComponent } from './jedi-list.component';
       counter: counterReducer,
       jediList: jediListReducer
      }),//加jediListReducer后error
+     JediModule
   ],
  // providers: [],
   bootstrap: [AppComponent]

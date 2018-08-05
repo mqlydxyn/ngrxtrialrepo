@@ -1,5 +1,3 @@
-// app-state.ts
-
 import { Jedi } from "./jedi.model";
 
 export interface AppState {

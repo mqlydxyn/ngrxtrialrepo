@@ -1,38 +1,31 @@
-import { Component } from '@angular/core';
+import { Component } from "@angular/core";
 import { Store } from "@ngrx/store";
-//import { Observable } from "rxjs/Observable";
-import { Observable, of } from 'rxjs';
 import { AppState } from "./app-state";
-
+import { INCREMENT, DECREMENT } from "./constants";
 
 @Component({
-  selector: 'app-root',
+  selector: "app-root",
   template: `
-  appcounter：
-  {{ counter$ | async }}
-  <button (click)="increment()" >Increment</button>
-  <button (click)="decrement()" >Decrement</button>
-  `//show value and buttons by adding here
-})
+    counter {{ counter$ | async }}
+    <button (click)="increase()">Increase</button>
+    <button (click)="decrease()">Descrease</button>
 
+    <jedi-list></jedi-list>
+  `
+})
 export class AppComponent {
+  title = "app";
   counter$;
 
-  //  title = 'ngrxtrial';
   constructor(private store: Store<AppState>) {
-    this.counter$ = store.select("counter");
-  /*asking our store for the count property 
-  store.select() returns an Observable
-  */
- }// inject a store service into the constructor
+    this.counter$ = this.store.select("counter");
+  }
 
- increment() {
-  this.store.dispatch({ type: 'INCREMENT' });
- }
+  increase() {
+    this.store.dispatch({ type: INCREMENT });
+  }
 
- decrement() {
-  this.store.dispatch({ type: 'DECREMENT' }); 
- }
-
+  decrease() {
+    this.store.dispatch({ type: DECREMENT });
+  }
 }
-

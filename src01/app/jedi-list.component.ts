@@ -1,8 +1,9 @@
+// jedi-list.component.ts
 import { Component } from "@angular/core";
 import { Store } from "@ngrx/store";
 import { AppState } from "./app-state";
 import { Jedi } from "./jedi.model";
-import { ADD_JEDI, REMOVE_JEDI, LOAD_JEDIS } from "./jedi.constants";
+import { Observable, of } from 'rxjs';
 
 @Component({
   selector: "jedi-list",
@@ -16,7 +17,7 @@ import { ADD_JEDI, REMOVE_JEDI, LOAD_JEDIS } from "./jedi.constants";
  `
 })
 export class JediListComponent {
-  list$;
+  list$: Observable<Array<Jedi>>;
   counter = 0;
   newJedi = "";
 
@@ -25,19 +26,19 @@ export class JediListComponent {
   }
 
   add() {
-    this.store.dispatch({
-      type: ADD_JEDI,
-      payload: { id: this.counter++, name: this.newJedi }
+    this.store.dispatch({ 
+      type: 'ADD_JEDI', 
+      payload: { id: this.counter++, name: this.newJedi } 
     });
-    this.newJedi = "";
+    this.newJedi = '';
   }
 
   remove(id) {
-    this.store.dispatch({ type: REMOVE_JEDI, payload: { id } });
+    this.store.dispatch({ type: 'REMOVE_JEDI', payload: { id } }); 
   }
 
   clear() {
-    this.store.dispatch({ type: LOAD_JEDIS, payload: [] });
+    this.store.dispatch({ type: 'LOAD_JEDIS', payload: [] });
     this.counter = 0;
   }
 }
